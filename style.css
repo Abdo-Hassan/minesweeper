@@ -1,3 +1,8 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .grid {
   height: 400px;
   width: 400px;
@@ -9,4 +14,8 @@
 .grid div {
   height: 40px;
   width: 40px;
+}
+
+.bomb {
+  background-color: orange;
 }
