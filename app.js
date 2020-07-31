@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let width = 10;
   let bombAmout = 20;
   let squares = [];
+  let isGameOver = false;
   //create Board
   function createBoard() {
     // get shuffled array with random bombs
@@ -69,8 +70,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // click on square actions
   function click(square) {
+    if (isGameOver) return;
+    if (
+      square.classList.contains('checked') ||
+      square.classList.contains('flag')
+    )
+      return;
     if (square.classList.contains('bomb')) {
       alert('Game Over');
+    } else {
+      let total = square.getAttribute('data');
+      if (total != 0) {
+        square.classList.add('checked');
+        square.innerHTML = total;
+        return;
+      }
     }
+    square.classList.add('checked');
   }
 });
